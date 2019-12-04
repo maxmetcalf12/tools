@@ -1,0 +1,14 @@
+<div class="navigation">
+  <a class="site-title" href="<%= root_path %>">
+    Metcalf Tools
+  </a>
+  <div class="nav-links">
+    <% if user_signed_in? %>
+      <%= link_to "Logout", destroy_user_session_path, method: :delete  %>
+    <% else %>
+      <%= link_to "Sign up", new_user_registration_path %>
+      <%= link_to "Login", new_user_session_path %>
+    <% end %>
+  </div>
+
+</div>

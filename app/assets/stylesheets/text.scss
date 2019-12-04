@@ -1,0 +1,11 @@
+body {
+  font-family: $main-font;
+  a {
+    color: $green;
+  }
+  .text-green { color: $green; }
+  .text-blue { color: $blue; }
+  .text-orange { color: $orange; }
+  .text-purple { color: $purple; }
+  .text-black { color: black; }
+}

@@ -1,0 +1,11 @@
+<div class="main-container">
+  <h1><%= @time_tracker.name %></h1>
+  <% @time_tracker.time_tracker_sessions.reverse_each do |session| %>
+    <% if session.clocked_out.present? %>
+      <p>Clocked in on <%= session.pretty_clocked_in %> and out on <%= session.pretty_clocked_out %></p>
+    <% else %>
+    <p>Clocked in on <%= session.pretty_clocked_in %></p>
+    <% end %>
+  <% end %>
+  <%= link_to "Delete Tracker", time_tracker_path(@time_tracker.id), method: :DELETE, class: "basic-btn orange" %>
+</div>

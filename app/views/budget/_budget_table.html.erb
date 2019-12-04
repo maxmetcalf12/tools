@@ -1,0 +1,16 @@
+<table>
+  <tr>
+    <th></th>
+    <th>Budget</th>
+    <th>Used</th>
+    <th>Percent</th>
+  </tr>
+<% @budgets.each do |budget| %>
+  <tr>
+    <td><%= budget.name %></td>
+    <td>$<%= budget.budget_amount %></td>
+    <td>$<%= @budget_sum[budget.name] %></td>
+    <td><%= number_to_percentage(@budget_sum[budget.name] * 100 / budget.budget_amount, precision: 2) %></td>
+  </tr>
+<% end %>
+</table>

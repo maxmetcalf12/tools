@@ -1,0 +1,22 @@
+<div class="main-container">
+  <h1>Time Trackers</h1>
+  <% @time_trackers.each do |tracker| %>
+    <div class="time-tracker-container">
+      <%= link_to tracker.name, time_tracker_path(tracker.id), class: "text-black" %> -- <%= tracker.hours_worked %>
+      <% if tracker.clocked_in %>
+        <%= link_to "Clock out", time_tracker_clock_out_path(tracker.id), method: :post %>
+      <% else %>
+        <%= link_to "Clock in", time_tracker_clock_in_path(tracker.id), method: :post %>
+      <% end %>
+    </div>
+  <% end %>
+
+  <%= form_for @new_tracker, html: { class: "modal-form" } do |f| %>
+    <%= f.hidden_field :user_id, value: @user.id %>
+    <div class="form-group">
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
+    <button type="submit" class="basic-btn green">Add Tracker</button>
+  <% end %>
+</div>

@@ -1,0 +1,34 @@
+<table class="transaction-table" id="transactionTable">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Amount</th>
+      <th>Date</th>
+      <th>Budget</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody class="transaction-body">
+    <% @transactions.each do |trans| %>
+      <tr>
+        <%= form_for trans, method: :put do |f| %>
+        <%= f.hidden_field :user_id, value: @user.id %>
+          <td class="transaction-item title">
+            <%= f.text_field :title %>
+            <span><%= trans.title %></span>
+          </td>
+          <td class="transaction-item number">
+            <%= f.number_field :amount, step: :any %>
+            <span><%= number_to_currency(trans.amount) %></span>
+          </td>
+          <td class="transaction-item">
+            <%= f.date_field :date %>
+            <span><%= trans.pretty_date %></span>
+          </td>
+          <td class="select-container"><%= f.collection_select(:budget_category_id, @budgets, :id, :name, {include_blank: true}, {class: "custom-select"}) %></td>
+          <td><button class="basic-btn green" type="submit">Save</button></td>
+        <% end %>
+      <% end %>
+    </tr>
+  </tbody>
+</table>

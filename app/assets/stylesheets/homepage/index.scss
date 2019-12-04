@@ -1,0 +1,24 @@
+.main-container {
+  .description-container {
+    position: relative;
+    padding-bottom: 20px;
+    max-height: 200px;
+    overflow-y: hidden;
+    .expand-button {
+      position: absolute;
+      bottom: 0;
+      cursor: pointer;
+      border: none;
+      background: $background-color;
+      width: 100%;
+      font-size: 16px;
+      text-align: center;
+    }
+    &.expanded {
+      max-height: none;
+    }
+  }
+  a {
+    line-height: 1.5;
+  }
+}

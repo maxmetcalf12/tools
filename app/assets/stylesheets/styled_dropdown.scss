@@ -1,0 +1,28 @@
+select.custom-select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  box-shadow: none;
+
+  border: none;
+  border-bottom: 1px solid $purple;
+
+  background: inherit;
+  background-size: 10px 10px;
+  padding: 0;
+  overflow: hidden;
+
+  font-family: $main-font;
+  font-size: 16px;
+
+  text-overflow: ellipsis;
+
+  &:disabled {
+    border-color: $light-gray;
+    color: $gray;
+  }
+
+  &.full-border {
+    border: 1px solid black;
+  }
+}

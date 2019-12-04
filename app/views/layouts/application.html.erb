@@ -5,11 +5,25 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= javascript_pack_tag 'application' %>
+    <link rel="stylesheet" href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono|Turret+Road&display=swap" rel="stylesheet">
+    <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" charset="utf-8"></script>
   </head>
 
-  <body>
+  <body class="ctr-<%= controller_name %> act-<%= action_name %>">
+    <%= render partial: "layouts/nav", locals: {transparent_nav: false} %>
+    <% if notice %>
+      <div class="alert-container">
+        <p class="alert alert-success"><%= notice %></p>
+      </div>
+    <% end %>
+    <% if alert %>
+      <div class="alert-container">
+        <p class="alert alert-danger"><%= alert %></p>
+      </div>
+    <% end %>
     <%= yield %>
   </body>
 </html>

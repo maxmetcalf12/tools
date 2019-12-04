@@ -1,0 +1,66 @@
+<div class="main-container">
+  <h2><%= @month %> Budget</h2>
+  <div class="budget-container">
+    <%= render partial: "budget_table" %>
+  </div>
+  <div class="month-selection">
+    <a href="<%= month_index_path 2.month.ago.strftime("%B") %>" class="basic-btn <%= @month == 2.month.ago.strftime("%B") ? 'green' : 'black' %>"><%= 2.month.ago.strftime("%B") %></a>
+    <a href="<%= month_index_path 1.month.ago.strftime("%B") %>" class="basic-btn <%= @month == 1.month.ago.strftime("%B") ? 'green' : 'black' %>"><%= 1.month.ago.strftime("%B") %></a>
+    <a href="<%= month_index_path Date.today.strftime("%B") %>" class="basic-btn <%= @month == Date.today.strftime("%B") ? 'green' : 'black' %>"><%= Date.today.strftime("%B") %></a>
+  </div>
+  <div class="transaction-container">
+    <h2 class="selected-month"><%= Date.today.strftime("%B") %></h2>
+    <button type="button" id="newTransaction" class="basic-btn purple">New Transaction</button>
+    <button type="button" id="newBudget" class="basic-btn purple">New Budget</button>
+    <div class="spacing-div"></div>
+    <div class="table-container">
+      <%= render partial: "transactions/table" %>
+    </div>
+  </div>
+</div>
+
+<div class="new-item-modal" id="transactionModal">
+  <div class="modal-content">
+    <div class="close-modal">
+      x
+    </div>
+    <%= form_for @new_transaction, html: { class: "modal-form" } do |f| %>
+      <%= f.hidden_field :user_id, value: @user.id %>
+      <div class="form-group">
+        <%= f.label :title %>
+        <%= f.text_field :title %>
+      </div>
+      <div class="form-group">
+        <%= f.label :amount %>
+        <%= f.number_field :amount, step: :any %>
+      </div>
+      <div class="form-group">
+        <%= f.label :date %>
+        <%= f.date_field :date %>
+      </div>
+      <div class="form-group">
+        <%= f.collection_select(:budget_category_id, @budgets, :id, :name, {include_blank: true}, {class: "custom-select full-border"}) %>
+      </div>
+      <button type="submit" class="basic-btn green">Add Transaction</button>
+    <% end %>
+  </div>
+</div>
+<div class="new-item-modal" id="budgetModal">
+  <div class="modal-content">
+    <div class="close-modal">
+      x
+    </div>
+    <%= form_for @new_budget, html: { class: "modal-form" } do |f| %>
+      <%= f.hidden_field :user_id, value: @user.id %>
+      <div class="form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+      </div>
+      <div class="form-group">
+        <%= f.label :budget_amount %>
+        <%= f.number_field :budget_amount %>
+      </div>
+      <button type="submit" class="basic-btn green">Add Budget</button>
+    <% end %>
+  </div>
+</div>
