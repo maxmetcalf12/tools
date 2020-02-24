@@ -1,0 +1,21 @@
+<div class="main-container">
+  <h1>New Years Resolutions</h1>
+  <% @resolutions.each do |resolution| %>
+    <%= link_to resolution.title, resolution_path(resolution.id) %> -- <%= resolution.short_description %>
+    <%= link_to "Delete", resolution_path(resolution.id), method: :DELETE, class: "text-orange" %>
+    <br>
+  <% end %>
+  <%= form_for @new_resolution, html: { class: "basic-form" } do |f| %>
+    <%= f.hidden_field :user_id, value: @user.id %>
+    <div class="form-group">
+      <%= f.label :title %>
+      <%= f.text_field :title, class: "text-input" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :short_description %>
+      <%= f.text_field :short_description, class: "text-input" %>
+    </div>
+    <button type="submit" class="basic-btn green">Add Resolution</button>
+  <% end %>
+  <h2>Text update by texting "update books" to number 8019715425</h2>
+</div>

@@ -73,3 +73,25 @@ body {
     }
   }
 }
+
+.basic-form {
+  padding: 12px 0;
+
+  .form-group {
+    display: flex;
+    justify-content: space-between;
+    margin: 12px 0;
+    width: 50%;
+
+    input {
+      width: 60%;
+    }
+
+    label {
+      width: 40%;
+    }
+    @include small-down {
+      width: 100%;
+    }
+  }
+}

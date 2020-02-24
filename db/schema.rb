@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_04_194521) do
+ActiveRecord::Schema.define(version: 2020_01_02_235531) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,28 @@ ActiveRecord::Schema.define(version: 2019_12_04_194521) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id"
     t.index ["user_id"], name: "index_budget_categories_on_user_id"
+  end
+
+  create_table "resolution_updates", force: :cascade do |t|
+    t.bigint "resolution_id"
+    t.string "title"
+    t.string "description"
+    t.datetime "date"
+    t.boolean "active"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["resolution_id"], name: "index_resolution_updates_on_resolution_id"
+  end
+
+  create_table "resolutions", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "title"
+    t.string "short_description"
+    t.string "full_description"
+    t.boolean "active"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_resolutions_on_user_id"
   end
 
   create_table "time_tracker_sessions", force: :cascade do |t|

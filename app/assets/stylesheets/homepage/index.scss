@@ -2,8 +2,7 @@
   .description-container {
     position: relative;
     padding-bottom: 20px;
-    max-height: 200px;
-    overflow-y: hidden;
+
     .expand-button {
       position: absolute;
       bottom: 0;
@@ -14,10 +13,12 @@
       font-size: 16px;
       text-align: center;
     }
+
     &.expanded {
       max-height: none;
     }
   }
+
   a {
     line-height: 1.5;
   }

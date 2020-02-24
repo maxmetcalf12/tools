@@ -1,0 +1,27 @@
+<div class="main-container">
+  <%= link_to "back", resolutions_path %>
+  <h1><%= @resolution.title %></h1>
+  <h2><%= @resolution.short_description %></h2>
+  <h3><%= @resolution_updates.count %> updates so far</h3>
+
+
+  <%= form_for [@resolution, @new_update], url: resolution_updates_path(@resolution), html: { class: "basic-form" } do |f| %>
+    <%= f.hidden_field :resolution_id, value: @resolution.id %>
+    <div class="form-group">
+      <%= f.label :title %>
+      <%= f.text_field :title, class: "text-input" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :date %>
+      <%= f.date_field :date %>
+    </div>
+    <button type="submit" class="basic-btn green">Add Update</button>
+  <% end %>
+
+  <% @resolution_updates.each do |update| %>
+    <p>
+      <%= update.pretty_date %> -- <%= update.title %>
+      <%= link_to "Delete", resolution_update_path(@resolution.id, update.id), method: :DELETE, class: "text-orange" %>
+    </p>
+  <% end %>
+</div>

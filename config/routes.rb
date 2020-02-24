@@ -13,4 +13,7 @@ Rails.application.routes.draw do
     post 'clock_in'
     post 'clock_out'
   end
+  resources :resolutions do
+    resources :resolution_updates, only: %i[show create update destroy], as: 'updates'
+  end
 end
