@@ -4,6 +4,6 @@ class ApplicationController < ActionController::Base
   private
 
   def set_user
-    @user = user_signed_in? ? current_user : User.find(2)
+    @user = current_user
   end
 end
