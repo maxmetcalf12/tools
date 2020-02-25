@@ -14,3 +14,8 @@ test:
   database: metcalf_tools_test
   username: max
   password: Denmark2015
+
+production:
+  <<: *default
+  username: max
+  password: Denmark2015
