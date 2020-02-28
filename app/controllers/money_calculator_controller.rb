@@ -14,7 +14,7 @@ class MoneyCalculatorController < ApplicationController
     @total_money = initial_deposit * (rate**compounding_years)
 
     (1..compounding_years).each do |year_number|
-      compounding_multiple = (1.0 + rate / 100.0)**(compounding_years - year_number)
+      compounding_multiple = rate**(compounding_years - year_number)
       @total_money += yearly_amount * compounding_multiple if year_number <= contribution_years
     end
 
