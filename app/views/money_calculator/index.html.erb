@@ -5,6 +5,10 @@
       <%= number_field_tag(:current_age, params[:current_age]) %>
     </div>
     <div class="form-group">
+      <%= label_tag(:initial_deposit, "How much do you have right now?") %>
+      <%= number_field_tag(:initial_deposit, params[:initial_deposit]) %>
+    </div>
+    <div class="form-group">
       <%= label_tag(:yearly_amount, "How much do you want to contribute annually?") %>
       <%= number_field_tag(:yearly_amount, params[:yearly_amount]) %>
     </div>
@@ -22,5 +26,7 @@
     </div>
     <%= submit_tag("Calculate") %>
   <% end %>
-  <h1>You will have <%= number_to_currency(@total_money) %></h1>
+  <% if @total_money.present? %>
+    <h1>You will have <%= number_to_currency(@total_money) %></h1>
+  <% end %>
 </div>
