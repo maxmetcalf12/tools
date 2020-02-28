@@ -16,4 +16,9 @@ Rails.application.routes.draw do
   resources :resolutions do
     resources :resolution_updates, only: %i[show create update destroy], as: 'updates'
   end
+
+  scope 'money-calculator' do
+    get '', action: :index, controller: :money_calculator, as: 'money_calculator'
+    post 'calculate', action: :calculate, controller: :money_calculator
+  end
 end
