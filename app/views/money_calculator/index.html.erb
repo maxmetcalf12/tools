@@ -27,6 +27,7 @@
     <%= submit_tag("Calculate") %>
   <% end %>
   <% if @total_money.present? %>
-    <h1>You will have <%= number_to_currency(@total_money) %></h1>
+    <h2>You will have contributed a total of <%= number_to_currency(@contributed_money) %>,</h2>
+    <h1>But you will have <%= number_to_currency(@total_money) %> saved!!</h1>
   <% end %>
 </div>

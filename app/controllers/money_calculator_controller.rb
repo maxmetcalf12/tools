@@ -12,6 +12,7 @@ class MoneyCalculatorController < ApplicationController
     compounding_years = cash_out_age - current_age
     rate = 1.0 + rate / 100.0
     @total_money = initial_deposit * (rate**compounding_years)
+    @contributed_money = initial_deposit + yearly_amount * contribution_years
 
     (1..compounding_years).each do |year_number|
       compounding_multiple = rate**(compounding_years - year_number)
