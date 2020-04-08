@@ -18,14 +18,13 @@
     </div>
   </div>
 </div>
-
 <div class="new-item-modal" id="transactionModal">
   <div class="modal-content">
     <div class="close-modal">
       x
     </div>
     <%= form_for @new_transaction, html: { class: "modal-form" } do |f| %>
-      <%= f.hidden_field :user_id, value: @user.id %>
+      <%= f.hidden_field :user_id, value: @user.try(:id) %>
       <div class="form-group">
         <%= f.label :title %>
         <%= f.text_field :title %>
@@ -51,7 +50,7 @@
       x
     </div>
     <%= form_for @new_budget, html: { class: "modal-form" } do |f| %>
-      <%= f.hidden_field :user_id, value: @user.id %>
+      <%= f.hidden_field :user_id, value: @user.try(:id) %>
       <div class="form-group">
         <%= f.label :name %>
         <%= f.text_field :name %>

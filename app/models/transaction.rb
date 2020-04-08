@@ -20,6 +20,8 @@ class Transaction < ApplicationRecord
 
   ## METHODS
   def pretty_date
+    return nil unless date
+
     date.strftime('%b %-d')
   end
 

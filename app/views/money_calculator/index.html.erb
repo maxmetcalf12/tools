@@ -24,7 +24,7 @@
       <%= label_tag(:cash_out_age, "What age do you want to know how much you will have saved?") %>
       <%= number_field_tag(:cash_out_age, params[:cash_out_age]) %>
     </div>
-    <%= submit_tag("Calculate") %>
+    <%= submit_tag("Calculate", class: "basic-btn green") %>
   <% end %>
   <% if @total_money.present? %>
     <h2>You will have contributed a total of <%= number_to_currency(@contributed_money) %>,</h2>

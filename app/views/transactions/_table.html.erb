@@ -12,7 +12,7 @@
     <% @transactions.each do |trans| %>
       <tr>
         <%= form_for trans, method: :put do |f| %>
-        <%= f.hidden_field :user_id, value: @user.id %>
+          <%= f.hidden_field :user_id, value: @user.try(:id) %>
           <td class="transaction-item title">
             <%= f.text_field :title %>
             <span><%= trans.title %></span>

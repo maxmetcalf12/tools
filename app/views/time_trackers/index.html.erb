@@ -10,9 +10,8 @@
       <% end %>
     </div>
   <% end %>
-
   <%= form_for @new_tracker, html: { class: "modal-form" } do |f| %>
-    <%= f.hidden_field :user_id, value: @user.id %>
+    <%= f.hidden_field :user_id, value: @user.try(:id) %>
     <div class="form-group">
       <%= f.label :name %>
       <%= f.text_field :name %>
