@@ -17,8 +17,13 @@ Rails.application.routes.draw do
     resources :resolution_updates, only: %i[show create update destroy], as: 'updates'
   end
 
-  scope 'money-calculator' do
-    get '', action: :index, controller: :money_calculator, as: 'money_calculator'
-    post 'calculate', action: :calculate, controller: :money_calculator
+  resource :money_calculator, only: [] do
+    get 'index'
+    post 'calculate'
+  end
+
+  scope 'stock_options' do
+    get '', to: 'money_calculators#stock_options', as: 'stock_options'
+    post 'calculate', to: 'money_calculators#stock_options_calculator', as: 'stock_options_calculator'
   end
 end

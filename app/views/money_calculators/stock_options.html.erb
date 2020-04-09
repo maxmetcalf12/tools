@@ -1,0 +1,45 @@
+<div class="main-container">
+  <%= form_with(url: :stock_options_calculator, method: "post", local: true) do %>
+    <div class="form-group">
+      <%= label_tag(:strike_price) %>
+      <%= number_field_tag(:strike_price, params[:strike_price]) %>
+    </div>
+    <div class="form-group">
+      <%= label_tag(:current_option_price) %>
+      <%= number_field_tag(:current_option_price, params[:current_option_price], step: :any) %>
+    </div>
+    <div class="form-group">
+      <%= label_tag(:current_price_underlying) %>
+      <%= number_field_tag(:current_price_underlying, params[:current_price_underlying], step: :any) %>
+    </div>
+    <div class="form-group">
+      <%= label_tag(:theta) %>
+      <%= number_field_tag(:theta, params[:theta], step: :any) %>
+    </div>
+    <div class="form-group">
+      <%= label_tag(:delta) %>
+      <%= number_field_tag(:delta, params[:delta], step: :any) %>
+    </div>
+    <div class="form-group">
+      <%= label_tag(:gamma) %>
+      <%= number_field_tag(:gamma, params[:gamma], step: :any) %>
+    </div>
+    <div class="form-group">
+      <%= label_tag(:target_underlying_price) %>
+      <%= number_field_tag(:target_underlying_price, params[:target_underlying_price], step: :any) %>
+    </div>
+    <div class="form-group">
+      <%= label_tag(:days_from_now) %>
+      <%= number_field_tag(:days_from_now, params[:days_from_now]) %>
+    </div>
+    <%= submit_tag("Calculate", class: "basic-btn green") %>
+  <% end %>
+
+  <% if @option_price.present? %>
+    <h2>Projected price: <%= number_to_currency(@option_price) %></h2>
+    <% change_in_price = @option_price - params[:current_option_price].to_f %>
+    <% percent_change = (change_in_price / params[:current_option_price].to_f) * 100 %>
+    <h2>Projected <%= change_in_price.positive? ? "gain" : "loss" %>:
+      <%= number_to_currency(change_in_price) %> (<%= percent_change.round(2) %>%)</h2>
+  <% end %>
+</div>

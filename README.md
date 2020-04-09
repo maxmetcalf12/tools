@@ -1,24 +1,8 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Just a list of fun tools that I have built. So far it includes
+- Time Tracker for Work
+- Budget tool
+- New Years Resolutions Tracker
+- Money interest calculator
+- Stock option calculator

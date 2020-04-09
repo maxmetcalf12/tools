@@ -4,6 +4,6 @@ class ApplicationController < ActionController::Base
   private
 
   def set_user
-    @user = current_user || User.find(1)
+    @user = current_user || User.all.first
   end
 end

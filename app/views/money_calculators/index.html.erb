@@ -1,5 +1,5 @@
 <div class="main-container">
-  <%= form_with(url: :calculate, method: "post", local: true) do %>
+  <%= form_with(url: :calculate_money_calculator, method: "post", local: true) do %>
     <div class="form-group">
       <%= label_tag(:current_age, "How old are you?") %>
       <%= number_field_tag(:current_age, params[:current_age]) %>
