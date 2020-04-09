@@ -1,0 +1,10 @@
+# Docs: http://rubocop.readthedocs.io/en/latest/
+inherit_from: .rubocop_ignore.yml
+inherit_from: .rubocop.yml
+
+Metrics/AbcSize:
+  Enabled: true
+Metrics/CyclomaticComplexity:
+  Enabled: true
+Metrics/PerceivedComplexity:
+  Enabled: true

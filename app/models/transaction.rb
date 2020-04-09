@@ -22,7 +22,7 @@ class Transaction < ApplicationRecord
   def pretty_date
     return nil unless date
 
-    date.strftime('%b %-d')
+    date.strftime("%b %-d")
   end
 
   def update(params)

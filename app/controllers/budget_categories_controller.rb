@@ -1,6 +1,6 @@
 class BudgetCategoriesController < ApplicationController
   def create
-    budget_cat = BudgetCategory.create(budget_cat_params)
+    BudgetCategory.create(budget_cat_params)
 
     redirect_to budget_path
   end

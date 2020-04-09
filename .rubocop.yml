@@ -1,0 +1,124 @@
+# Docs: http://rubocop.readthedocs.io/en/latest/
+inherit_from: .rubocop_ignore.yml
+
+## Cops modified from traditional ruby style guide
+Layout/ParameterAlignment:
+  EnforcedStyle: with_fixed_indentation
+Layout/BlockAlignment:
+  EnforcedStyleAlignWith: start_of_block
+Layout/CaseIndentation:
+  EnforcedStyle: end
+Layout/DefEndAlignment:
+  EnforcedStyleAlignWith: def
+  AutoCorrect: true
+Layout/EmptyLineBetweenDefs:
+  AllowAdjacentOneLineDefs: true
+Layout/EndAlignment:
+  EnforcedStyleAlignWith: variable
+  AutoCorrect: true
+Layout/FirstArrayElementIndentation:
+  EnforcedStyle: consistent
+Layout/FirstArrayElementLineBreak:
+  Enabled: true
+Layout/FirstHashElementIndentation:
+  EnforcedStyle: consistent
+Layout/FirstHashElementLineBreak:
+  Enabled: true
+Layout/FirstMethodArgumentLineBreak:
+  Enabled: true
+Layout/HashAlignment:
+  EnforcedHashRocketStyle: table
+  EnforcedColonStyle: table
+Layout/MultilineArrayLineBreaks:
+  Enabled: true
+Layout/MultilineAssignmentLayout:
+  Enabled: true
+  EnforcedStyle: new_line
+Layout/MultilineHashKeyLineBreaks:
+  Enabled: true
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+Layout/MultilineMethodDefinitionBraceLayout:
+  EnforcedStyle: new_line
+Layout/SpaceAroundEqualsInParameterDefault:
+  Enabled: true
+  EnforcedStyle: no_space
+
+Style/Alias:
+  Enabled: true
+  Description: Use alias_method instead of alias in a class or module body.
+  EnforcedStyle: prefer_alias_method
+Style/CommandLiteral:
+  Enabled: true
+  EnforcedStyle: backticks
+Style/NumericPredicate:
+  Enabled: true
+  AutoCorrect: true
+Style/RegexpLiteral:
+  Enabled: true
+  EnforcedStyle: slashes
+  AllowInnerSlashes: true
+  Description: Ensures slashes are used for regex literals
+Style/StringLiterals:
+  Enabled: true
+  Description: Checks if uses of quotes match the configured preference.
+  EnforcedStyle: double_quotes
+Style/StringLiteralsInInterpolation:
+  Enabled: true
+  Description: Checks if uses of quotes match the configured preference.
+  EnforcedStyle: single_quotes
+Style/SymbolArray:
+  Enabled: true
+  EnforcedStyle: brackets
+Style/WordArray:
+  Enabled: true
+  EnforcedStyle: brackets
+
+## Disabled cops
+Layout/EmptyLineAfterMagicComment:
+  Enabled: false
+# Switch ClassStructure to true when we're ready to start keeping the classes in a consistent order
+# https://rubocop.readthedocs.io/en/latest/cops_layout/#layoutclassstructure
+Layout/ClassStructure:
+  Enabled: false
+
+Metrics/AbcSize:
+  Enabled: false
+Metrics/BlockLength:
+  Enabled: false
+Metrics/ClassLength:
+  Enabled: false
+Metrics/CyclomaticComplexity:
+  Enabled: false
+Metrics/LineLength:
+  Enabled: false
+  # Max: 120
+  # IgnoredPatterns: ["\""]
+Metrics/MethodLength:
+  Enabled: false
+Metrics/ModuleLength:
+  Enabled: false
+Metrics/PerceivedComplexity:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+Style/FrozenStringLiteralComment:
+  Enabled: false
+Style/NumericLiterals:
+  Enabled: false
+Style/SingleLineMethods:
+  Enabled: false
+Style/SafeNavigation:
+  Enabled: false
+Style/TernaryParentheses:
+  Enabled: false
+Style/FormatStringToken:
+  Enabled: false
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Naming/AccessorMethodName:
+  Enabled: false
+Naming/MemoizedInstanceVariableName:
+  Enabled: false

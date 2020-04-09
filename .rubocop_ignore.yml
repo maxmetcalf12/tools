@@ -1,0 +1,11 @@
+AllCops:
+  Exclude:
+    - "db/schema.rb"
+    - "db/seeds.rb"
+    - "config/deploy.rb"
+    - "node_modules/**/*"
+
+Naming/PredicateName:
+  Exclude:
+    - "app/serializers/api/providers/v1/provider_serializer.rb"
+    - "app/models/harpoon/media.rb"

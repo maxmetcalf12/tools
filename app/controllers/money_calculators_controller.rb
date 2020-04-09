@@ -5,13 +5,13 @@ class MoneyCalculatorsController < ApplicationController
     @total_money = calculate_total_money(params_to_number(money_value_params))
     @contributed_money = calculate_invested_amount(params_to_number(money_value_params))
 
-    render 'index'
+    render "index"
   end
 
   def stock_options_calculator
     @option_price = calculate_option_price(params_to_number(stock_option_params))
 
-    render 'stock_options'
+    render "stock_options"
   end
 
   private

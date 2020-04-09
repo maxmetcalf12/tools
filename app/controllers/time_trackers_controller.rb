@@ -24,7 +24,8 @@ class TimeTrackersController < ApplicationController
     tracker = TimeTracker.find(params[:time_tracker_id])
 
     return redirect_to time_trackers_path, alert: "You've already clocked in, clock out before clocking in again" if tracker.clocked_in
-    tracker_session = TimeTrackerSession.create(time_tracker_id: tracker.id, clocked_in: DateTime.now)
+
+    TimeTrackerSession.create(time_tracker_id: tracker.id, clocked_in: DateTime.now)
     redirect_to time_trackers_path, notice: "You've been clocked in"
   end
 

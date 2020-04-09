@@ -10,7 +10,7 @@
 #  user_id       :bigint
 #
 
-require 'test_helper'
+require "test_helper"
 
 class BudgetCategoryTest < ActiveSupport::TestCase
   # test "the truth" do

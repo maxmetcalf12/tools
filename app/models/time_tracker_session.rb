@@ -14,10 +14,10 @@ class TimeTrackerSession < ApplicationRecord
   belongs_to :time_tracker, required: true
 
   def pretty_clocked_in
-    clocked_in.localtime.strftime('%b %-d at %l:%M %P')
+    clocked_in.localtime.strftime("%b %-d at %l:%M %P")
   end
 
   def pretty_clocked_out
-    clocked_out.localtime.strftime('%b %-d at %l:%M %P')
+    clocked_out.localtime.strftime("%b %-d at %l:%M %P")
   end
 end

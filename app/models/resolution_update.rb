@@ -17,7 +17,8 @@ class ResolutionUpdate < ApplicationRecord
   belongs_to :resolution
 
   def pretty_date
-    return 'No date' if date.nil?
-    date.localtime.strftime('%b %-d')
+    return "No date" if date.nil?
+
+    date.localtime.strftime("%b %-d")
   end
 end

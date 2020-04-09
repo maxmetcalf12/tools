@@ -10,18 +10,18 @@ class TransactionsController < ApplicationController
     transaction = Transaction.find(params[:id])
 
     unless transaction.update(transaction_params)
-      return redirect_to budget_path, notice: 'THIS DID NOT WORK' unless transaction.update(params_with_user)
+      return redirect_to budget_path, notice: "THIS DID NOT WORK" unless transaction.update(params_with_user)
     end
     redirect_to budget_path
   end
 
   def monthly_transactions
-    month = params['month']
+    month = params["month"]
     start_of_month = Date.parse("#{month} 1, #{Time.now.year}")
     end_of_month = start_of_month.end_of_month
     @transactions = Transaction.where(user: @user, date: start_of_month..end_of_month).order(date: :asc)
     @budgets = BudgetCategory.where(user: @user)
-    render partial: 'table'
+    render partial: "table"
   end
 
   def create
