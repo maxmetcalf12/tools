@@ -11,13 +11,3 @@
  * It is generally better to create a new file per style scope.
  *
  */
-@import "variables";
-@import "breakpoints";
-@import "text";
-@import "navbar";
-@import "components";
-@import "styled_dropdown";
-
-// PAGE CSS
-@import "homepage/*";
-@import "budget/*";
